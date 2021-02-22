@@ -1,0 +1,18 @@
+library(readxl)
+dados_domiciliosCEA15P02 <- read_excel("C:/Users/djham/Google Drive/Universidade/USP/MAE0399/Lista/dados_domiciliosCEA15P02.xlsx")
+cea <- dados_domiciliosCEA15P02
+summary(cea$consumo_per_capita)
+
+cea$TIPODEDOMICILIO[cea$TIPODEDOMICILIO==1] <- "Casa"
+cea$TIPODEDOMICILIO[cea$TIPODEDOMICILIO==2] <- "Apartamento"
+cea$TIPODEDOMICILIO[cea$TIPODEDOMICILIO==3] <- "Comodo"
+boxplot(cea$consumo_per_capita~cea$TIPODEDOMICILIO, main="Consumo de Gas Anual (KG) por Tipo de Domicilio", xlab="Tipo de Domicílio", ylab="Consumo de Gás Anual KG")
+
+casa  <- cea$consumo_per_capita[cea$TIPODEDOMICILIO==1]
+apartamento <- cea$consumo_per_capita[cea$TIPODEDOMICILIO==2]
+comodo <- cea$consumo_per_capita[cea$TIPODEDOMICILIO==3]
+
+
+
+
+
